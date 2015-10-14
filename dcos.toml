@@ -1,0 +1,8 @@
+[core]
+reporting = false
+dcos_url = "http://dcos.elb.amazonaws.com"
+timeout = 5
+email = "dcoscli@mesosphere.io"
+[package]
+cache = "/home/dcoscli/.dcos/cache"
+sources = [ "https://github.com/mesosphere/multiverse/archive/version-1.x.zip", "https://github.com/mesosphere/universe/archive/version-1.x.zip",]
