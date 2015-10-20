@@ -4,7 +4,8 @@
 
 Note: You can specify the URL of your DCOS cluster upon startup
 - e.g., `docker run -i -t vishnumohan/alpine-dcoscli:nosubcmd https://dcos.elb.amazonaws.com`
-- This version contains some of the subcommands for [DCOS Services](https://docs.mesosphere.com/reference/servicestatus/)
+- `alpine-dcoscli:latest` contains some of the subcommands for [DCOS Services](https://docs.mesosphere.com/reference/servicestatus/)
+- `alpine-dcoscli:nosubcmd` contains none of the DCOS Services subcommands
 
 References:
 - [Mesosphere DCOS Documentation](https://docs.mesosphere.com)
