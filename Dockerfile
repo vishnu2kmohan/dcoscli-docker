@@ -51,7 +51,8 @@ RUN virtualenv -p python3 . \
     && dcos package update --validate \
     && deactivate'
 
-COPY dcos.sh /usr/local/bin/
-
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["/usr/local/bin/dcos.sh"]
+
+# Add local files as late as possible to stay cache friendly
+COPY dcos.sh /usr/local/bin/
