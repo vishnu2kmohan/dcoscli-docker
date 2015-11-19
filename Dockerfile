@@ -42,7 +42,6 @@ WORKDIR /home/dcoscli
 USER dcoscli
 RUN mkdir -p /home/dcoscli/.dcos \
     && mkdir -p /home/dcoscli/.dcos/cache
-COPY dcos.toml /home/dcoscli/.dcos/
 RUN virtualenv -p python3 . \
     && bash -c \
     'source bin/activate \
@@ -58,7 +57,9 @@ RUN virtualenv -p python3 . \
     && dcos package install --cli swarm --yes \
     && deactivate'
 
-COPY dcos.sh /usr/local/bin/
-
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["/usr/local/bin/dcos.sh"]
+
+# Add local files as late as possible to stay cache friendly`
+COPY dcos.toml /home/dcoscli/.dcos/
+COPY dcos.sh /usr/local/bin/
